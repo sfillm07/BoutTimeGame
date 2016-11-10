@@ -10,11 +10,16 @@ import Foundation
 
 
 struct Fact {
-    var date: NSDate
+    var date: String
     var fact: String
     
-    init(date: NSDate, fact: String) {
+    init(date: String, fact: String) {
         self.date = date
         self.fact = fact
     }
 }
+
+var factArray: [Fact] = [
+    Fact(date: "12-17-1903", fact: "Wright Brothers First Flight"),
+    Fact(date: "12-05-1924", fact: "Prohibition Begins")
+]

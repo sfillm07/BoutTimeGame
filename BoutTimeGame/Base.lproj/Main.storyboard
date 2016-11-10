@@ -1,26 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BoutTimeGame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gsl-gk-UL5">
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vJA-Ug-aoY">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5d8-Bd-OwK">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Qm9-kG-sBW">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Erj-yW-Cu5">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzG-7a-fE7">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o68-g5-osk">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.57925575659999995" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Erj-yW-Cu5" firstAttribute="top" secondItem="Gsl-gk-UL5" secondAttribute="top" constant="478" id="4RG-gb-n4x"/>
+                                    <constraint firstItem="vJA-Ug-aoY" firstAttribute="leading" secondItem="Erj-yW-Cu5" secondAttribute="leading" id="5BU-hU-rSQ"/>
+                                    <constraint firstItem="vJA-Ug-aoY" firstAttribute="leading" secondItem="Gsl-gk-UL5" secondAttribute="leading" constant="27" id="7wo-X8-Dp5"/>
+                                    <constraint firstItem="5d8-Bd-OwK" firstAttribute="top" secondItem="vJA-Ug-aoY" secondAttribute="bottom" constant="18" id="E63-Dl-hwa"/>
+                                    <constraint firstItem="vJA-Ug-aoY" firstAttribute="leading" secondItem="5d8-Bd-OwK" secondAttribute="leading" id="Ggy-dn-zE0"/>
+                                    <constraint firstItem="vJA-Ug-aoY" firstAttribute="leading" secondItem="Qm9-kG-sBW" secondAttribute="leading" id="IYy-2p-hUO"/>
+                                    <constraint firstAttribute="bottom" secondItem="Erj-yW-Cu5" secondAttribute="bottom" constant="97" id="OH1-60-yrx"/>
+                                    <constraint firstAttribute="bottom" secondItem="vJA-Ug-aoY" secondAttribute="bottom" constant="575" id="PcG-k5-sWN"/>
+                                    <constraint firstItem="Qm9-kG-sBW" firstAttribute="top" secondItem="Gsl-gk-UL5" secondAttribute="top" constant="317" id="cdR-kS-QrP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.031372549020000001" green="0.16862745100000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gsl-gk-UL5" secondAttribute="bottom" id="3Ij-Pr-b1d"/>
+                            <constraint firstAttribute="trailing" secondItem="Gsl-gk-UL5" secondAttribute="trailing" id="Ver-Bu-SSd"/>
+                            <constraint firstItem="Gsl-gk-UL5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bnI-ae-f9r"/>
+                            <constraint firstItem="Gsl-gk-UL5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="u0b-zX-IGB"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-79.710144927536234" y="118.20652173913044"/>
         </scene>
     </scenes>
 </document>
