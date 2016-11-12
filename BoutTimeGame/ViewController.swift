@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var randomFactArray: [Fact] = []
     var rNumber = 0
     var eventFacts: [String] = []
+    var rounds = 0
 
 
     @IBOutlet var factLabels: [UILabel]!
@@ -38,24 +39,33 @@ class ViewController: UIViewController {
 
 
     @IBAction func fullDownButton() {
+        eventLabelMove(origin: 0, destination: 3)
     }
     
     @IBAction func fullUpButton() {
+        eventLabelMove(origin: 3, destination: 0)
     }
     
     @IBAction func upHalfTopButton() {
+        eventLabelMove(origin: 1, destination: 0)
     }
     
     @IBAction func downHalfTopButton() {
+        eventLabelMove(origin: 1, destination: 2)
     }
     
     @IBAction func upHalfBottomButton() {
+        eventLabelMove(origin: 2, destination: 1)
     }
     
     @IBAction func downHalfBottomButton() {
+        eventLabelMove(origin: 2, destination: 3)
     }
     
     @IBAction func nextRoundButtonPressed() {
+        eventGenerator()
+        seconds = 60
+        countdownTimer()
     }
     
     
@@ -110,6 +120,24 @@ class ViewController: UIViewController {
             factLabels[i].text = eventFacts[i]
         }
     }
+    
+    func reloadEventLabels() {
+        for i in 0..<factLabels.count {
+            factLabels[i].text = eventFacts[i]
+        }
+    }
+    
+    func eventLabelMove(origin: Int, destination: Int) {
+        let moveEvent = eventFacts[origin]
+        eventFacts.remove(at: origin)
+        eventFacts.insert(moveEvent, at: destination)
+        
+        reloadEventLabels()
+    }
+    
+
 
 }
+
+
 
