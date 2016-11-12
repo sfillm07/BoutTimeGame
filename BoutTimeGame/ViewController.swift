@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var time = 60
+    var time = 12
     var timer = Timer()
 
     @IBOutlet var factLabels: [UILabel]!
-    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var timerLabel: UIButton!
     @IBOutlet weak var shakeLabel: UILabel!
     
     override func viewDidLoad() {
@@ -53,12 +53,14 @@ class ViewController: UIViewController {
     
     func counter() {
         time -= 1
-        
-        timerLabel.text = "0:\(time)"
-        
+        if time > 9 {
+        timerLabel.setTitle("0:\(time)", for: .normal)
+        } else {
+            timerLabel.setTitle("0:0\(time)", for: .normal)
+        }
         if time == 0 {
             timer.invalidate()
-            timerLabel.isHidden = true
+            timerLabel.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
             shakeLabel.isHidden = true
         }
     }

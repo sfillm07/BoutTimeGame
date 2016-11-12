@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Un5-RK-Ezh">
@@ -142,19 +142,25 @@
                                             <constraint firstItem="EIc-I6-3Jd" firstAttribute="top" secondItem="5CA-oV-bxe" secondAttribute="top" id="eo0-5P-P8b"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-dB-qUM">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-dB-qUM">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emd-PV-sDn">
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Shake to complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-Tg-Be8">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-df-rK0">
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
+                                                <state key="normal" title="0:59">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Shake to complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-Tg-Be8">
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <color key="textColor" red="0.0" green="0.57925575659999995" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="HJi-Tg-Be8" firstAttribute="top" secondItem="yk3-df-rK0" secondAttribute="bottom" constant="30" id="6Dm-ff-2BX"/>
+                                            <constraint firstItem="yk3-df-rK0" firstAttribute="leading" secondItem="NeS-dB-qUM" secondAttribute="leading" constant="60" id="FfS-lE-uRt"/>
+                                            <constraint firstAttribute="trailing" secondItem="yk3-df-rK0" secondAttribute="trailing" constant="60" id="vqh-jm-KV4"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -182,7 +188,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="shakeLabel" destination="HJi-Tg-Be8" id="VJ0-Ed-o1X"/>
-                        <outlet property="timerLabel" destination="emd-PV-sDn" id="UN3-cg-KRY"/>
+                        <outlet property="timerLabel" destination="yk3-df-rK0" id="df9-fy-1UH"/>
                         <outletCollection property="factLabels" destination="Rda-3J-JTf" collectionClass="NSMutableArray" id="Yeq-So-nkc"/>
                         <outletCollection property="factLabels" destination="yel-HP-JsL" collectionClass="NSMutableArray" id="xYi-2h-Lwj"/>
                         <outletCollection property="factLabels" destination="PJs-oW-7Ds" collectionClass="NSMutableArray" id="8ks-L8-sCy"/>
