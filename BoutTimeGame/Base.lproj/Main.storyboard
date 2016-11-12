@@ -33,6 +33,9 @@
                                                     <constraint firstAttribute="width" constant="40" id="ggw-dP-hYH"/>
                                                 </constraints>
                                                 <state key="normal" image="down_full"/>
+                                                <connections>
+                                                    <action selector="fullDownButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="VQY-Yg-IqV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -59,12 +62,18 @@
                                                             <constraint firstAttribute="width" constant="40" id="GVM-lX-Wof"/>
                                                         </constraints>
                                                         <state key="normal" image="up_half"/>
+                                                        <connections>
+                                                            <action selector="upHalfTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y7q-7Y-zgQ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyI-7Y-2bb">
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="LHI-Uy-kcd"/>
                                                         </constraints>
                                                         <state key="normal" image="down_half"/>
+                                                        <connections>
+                                                            <action selector="downHalfTopButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5f-wc-mce"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -91,12 +100,18 @@
                                                             <constraint firstAttribute="width" constant="40" id="joK-8a-Mcr"/>
                                                         </constraints>
                                                         <state key="normal" image="up_half"/>
+                                                        <connections>
+                                                            <action selector="upHalfBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="FBN-fN-lHB"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jK7-j7-IKc">
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="rzu-T6-vEH"/>
                                                         </constraints>
                                                         <state key="normal" image="down_half"/>
+                                                        <connections>
+                                                            <action selector="downHalfBottomButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="lca-Fz-nzZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -115,6 +130,10 @@
                                                     <constraint firstAttribute="width" constant="40" id="p0D-3P-3bQ"/>
                                                 </constraints>
                                                 <state key="normal" image="up_full"/>
+                                                <connections>
+                                                    <action selector="fullUpButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="AVI-oK-q59"/>
+                                                    <action selector="fullUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jox-82-Fon"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -125,7 +144,7 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-dB-qUM">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emd-PV-sDn">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emd-PV-sDn">
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -161,6 +180,14 @@
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="shakeLabel" destination="HJi-Tg-Be8" id="VJ0-Ed-o1X"/>
+                        <outlet property="timerLabel" destination="emd-PV-sDn" id="UN3-cg-KRY"/>
+                        <outletCollection property="factLabels" destination="Rda-3J-JTf" collectionClass="NSMutableArray" id="Yeq-So-nkc"/>
+                        <outletCollection property="factLabels" destination="yel-HP-JsL" collectionClass="NSMutableArray" id="xYi-2h-Lwj"/>
+                        <outletCollection property="factLabels" destination="PJs-oW-7Ds" collectionClass="NSMutableArray" id="8ks-L8-sCy"/>
+                        <outletCollection property="factLabels" destination="EIc-I6-3Jd" collectionClass="NSMutableArray" id="Yea-kt-hof"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
