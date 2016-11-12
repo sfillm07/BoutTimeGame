@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import GameKit
 
 struct Fact {
     var date: String
@@ -48,7 +48,7 @@ var factArray: [Fact] = [
     Fact(date: "02-22-1980", fact: "Miracle on Ice U.S. Olympic Ice Hockey"),
     Fact(date: "04-19-1980", fact: "AIDS Epidemic Begins in U.S."),
     Fact(date: "01-28-1986", fact: "Space Shuttle Challenger Explodes"),
-    Fact(date: "04-26-1986", fact: "Chernobul Disaster"),
+    Fact(date: "04-26-1986", fact: "Chernobyl Disaster"),
     Fact(date: "03-24-1989", fact: "Exxon Valdez Spill"),
     Fact(date: "06-04-1989", fact: "Tianament Square Massacre"),
     Fact(date: "01-20-1993", fact: "Bill Clinton Elected President"),
@@ -64,3 +64,15 @@ var factArray: [Fact] = [
     Fact(date: "05-02-2011", fact: "Osama Bin Laden Killed"),
     Fact(date: "03-08-2014", fact: "Flight MH370 Disappears")
 ]
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Un5-RK-Ezh">
@@ -80,7 +80,6 @@
                                                     <constraint firstItem="0yt-D7-6sc" firstAttribute="top" secondItem="YEv-P3-w6O" secondAttribute="top" id="Tnb-kD-agK"/>
                                                     <constraint firstAttribute="trailing" secondItem="0yt-D7-6sc" secondAttribute="trailing" id="Zku-WO-GaD"/>
                                                     <constraint firstAttribute="trailing" secondItem="DyI-7Y-2bb" secondAttribute="trailing" id="alP-eu-XS8"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DyI-7Y-2bb" secondAttribute="bottom" id="kaG-Bz-cv6"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -142,13 +141,21 @@
                                             <constraint firstItem="EIc-I6-3Jd" firstAttribute="top" secondItem="5CA-oV-bxe" secondAttribute="top" id="eo0-5P-P8b"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-dB-qUM">
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NeS-dB-qUM">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk3-df-rK0">
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
-                                                <state key="normal" title="0:59">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYF-Og-bPW">
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4m-ev-Udg">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="160" id="uhM-7D-JVs"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="next_round_success"/>
+                                                <connections>
+                                                    <action selector="nextRoundButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="zf5-Gg-dmA"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Shake to complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-Tg-Be8">
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -156,19 +163,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="HJi-Tg-Be8" firstAttribute="top" secondItem="yk3-df-rK0" secondAttribute="bottom" constant="30" id="6Dm-ff-2BX"/>
-                                            <constraint firstItem="yk3-df-rK0" firstAttribute="leading" secondItem="NeS-dB-qUM" secondAttribute="leading" constant="60" id="FfS-lE-uRt"/>
-                                            <constraint firstAttribute="trailing" secondItem="yk3-df-rK0" secondAttribute="trailing" constant="60" id="vqh-jm-KV4"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="NeS-dB-qUM" firstAttribute="leading" secondItem="Un5-RK-Ezh" secondAttribute="leading" id="2yZ-fA-Fdu"/>
                                     <constraint firstItem="pou-eZ-qt2" firstAttribute="leading" secondItem="Un5-RK-Ezh" secondAttribute="leading" id="73f-I1-m8E"/>
+                                    <constraint firstItem="NeS-dB-qUM" firstAttribute="leading" secondItem="Un5-RK-Ezh" secondAttribute="leading" id="D2v-ny-Txv"/>
                                     <constraint firstAttribute="trailing" secondItem="Csg-yZ-Ohd" secondAttribute="trailing" id="Dqy-G2-fMy"/>
                                     <constraint firstItem="Csg-yZ-Ohd" firstAttribute="leading" secondItem="Un5-RK-Ezh" secondAttribute="leading" id="OlK-ka-c6V"/>
-                                    <constraint firstAttribute="trailing" secondItem="NeS-dB-qUM" secondAttribute="trailing" id="cvw-2Q-lW6"/>
+                                    <constraint firstAttribute="trailing" secondItem="NeS-dB-qUM" secondAttribute="trailing" id="hXp-Db-fa0"/>
                                     <constraint firstItem="LyJ-QO-TBa" firstAttribute="leading" secondItem="Un5-RK-Ezh" secondAttribute="leading" id="niN-8m-EWB"/>
                                     <constraint firstAttribute="trailing" secondItem="pou-eZ-qt2" secondAttribute="trailing" id="riz-U9-r3A"/>
                                     <constraint firstItem="5CA-oV-bxe" firstAttribute="leading" secondItem="Un5-RK-Ezh" secondAttribute="leading" id="tS5-8S-Ua7"/>
@@ -187,8 +189,9 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="nextRoundButton" destination="R4m-ev-Udg" id="gFV-sM-7dQ"/>
                         <outlet property="shakeLabel" destination="HJi-Tg-Be8" id="VJ0-Ed-o1X"/>
-                        <outlet property="timerLabel" destination="yk3-df-rK0" id="df9-fy-1UH"/>
+                        <outlet property="timerLabel" destination="aYF-Og-bPW" id="Ji5-Zv-Qnc"/>
                         <outletCollection property="factLabels" destination="Rda-3J-JTf" collectionClass="NSMutableArray" id="Yeq-So-nkc"/>
                         <outletCollection property="factLabels" destination="yel-HP-JsL" collectionClass="NSMutableArray" id="xYi-2h-Lwj"/>
                         <outletCollection property="factLabels" destination="PJs-oW-7Ds" collectionClass="NSMutableArray" id="8ks-L8-sCy"/>
@@ -203,6 +206,7 @@
     <resources>
         <image name="down_full" width="158" height="457"/>
         <image name="down_half" width="158" height="229"/>
+        <image name="next_round_success" width="558" height="142"/>
         <image name="up_full" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
     </resources>

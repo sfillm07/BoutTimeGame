@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import GameKit
 
 class ViewController: UIViewController {
     
-    var time = 12
+    var seconds = 12
     var timer = Timer()
+    var randomNumberArray: [Int] = []
+    var randomFactArray: [Fact] = []
+    var rNumber = 0
+    var eventFacts: [String] = []
+
 
     @IBOutlet var factLabels: [UILabel]!
-    @IBOutlet weak var timerLabel: UIButton!
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var shakeLabel: UILabel!
+    @IBOutlet weak var nextRoundButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        nextRoundButton.isHidden = true
         countdownTimer()
+        eventGenerator()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,23 +55,61 @@ class ViewController: UIViewController {
     @IBAction func downHalfBottomButton() {
     }
     
+    @IBAction func nextRoundButtonPressed() {
+    }
+    
+    
     func countdownTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
     }
     
     func counter() {
-        time -= 1
-        if time > 9 {
-        timerLabel.setTitle("0:\(time)", for: .normal)
+        seconds -= 1
+        if seconds > 9 {
+        timerLabel.text = "0:\(seconds)"
         } else {
-            timerLabel.setTitle("0:0\(time)", for: .normal)
+            timerLabel.text = "0:0\(seconds)"
         }
-        if time == 0 {
+        if seconds == 0 {
             timer.invalidate()
-            timerLabel.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
-            shakeLabel.isHidden = true
+            timerLabel.text = ""
+            shakeLabel.text = ""
+            nextRoundButton.isHidden = false
         }
     }
     
+    func randomNumber(limit: Int) -> Int {
+        
+        let number = GKRandomSource.sharedRandom().nextInt(upperBound: factArray.count)
+        
+        return number
+    }
+    
+    func randomNumberGenerator() {
+        
+        repeat {
+            rNumber = randomNumber(limit: 40)
+            randomNumberArray.append(rNumber)
+        } while randomNumberArray.count < 4
+    }
+    
+    func eventGenerator() {
+        
+        randomNumberGenerator()
+        
+        for (_, value) in randomNumberArray.enumerated() {
+            randomFactArray.append(factArray[value])
+            print(randomFactArray)
+        }
+        
+        for fact in randomFactArray {
+            eventFacts.append(fact.fact)
+        }
+        
+        for i in 0..<factLabels.count {
+            factLabels[i].text = eventFacts[i]
+        }
+    }
+
 }
 
