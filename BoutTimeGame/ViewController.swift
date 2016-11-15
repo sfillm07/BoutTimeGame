@@ -11,13 +11,14 @@ import GameKit
 
 class ViewController: UIViewController {
     
-    var seconds = 12
+    var seconds = 60
     var timer = Timer()
     var randomNumberArray: [Int] = []
     var randomFactArray: [Fact] = []
     var rNumber = 0
     var eventFacts: [String] = []
     var rounds = 0
+    var factText = ""
 
 
     @IBOutlet var factLabels: [UILabel]!
@@ -25,11 +26,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var shakeLabel: UILabel!
     @IBOutlet weak var nextRoundButton: UIButton!
     
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.subtype == UIEventSubtype.motionShake {
+            timer.invalidate()
+            
+            let success = dateChecker()
+            
+            if success == true {
+                nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
+            } else {
+                nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
+            }
+            
+            timer.invalidate()
+            timerLabel.text = ""
+            shakeLabel.text = ""
+            nextRoundButton.isHidden = false
+        
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nextRoundButton.isHidden = true
         countdownTimer()
         eventGenerator()
+        loadEventLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,55 +110,58 @@ class ViewController: UIViewController {
         }
     }
     
-    func randomNumber(limit: Int) -> Int {
-        
-        let number = GKRandomSource.sharedRandom().nextInt(upperBound: factArray.count)
-        
-        return number
-    }
-    
-    func randomNumberGenerator() {
-        
-        repeat {
-            rNumber = randomNumber(limit: 40)
-            randomNumberArray.append(rNumber)
-        } while randomNumberArray.count < 4
-    }
+
     
     func eventGenerator() {
         
-        randomNumberGenerator()
+        let shuffledFactArray = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: factArray)
         
-        for (_, value) in randomNumberArray.enumerated() {
-            randomFactArray.append(factArray[value])
-            print(randomFactArray)
+        for i in 0...3 {
+            randomFactArray.append(shuffledFactArray[i] as! Fact)
         }
-        
-        for fact in randomFactArray {
-            eventFacts.append(fact.fact)
-        }
-        
-        for i in 0..<factLabels.count {
-            factLabels[i].text = eventFacts[i]
-        }
+        print(randomFactArray)
     }
     
-    func reloadEventLabels() {
-        for i in 0..<factLabels.count {
-            factLabels[i].text = eventFacts[i]
+    func loadEventLabels() {
+        for (index, _) in randomFactArray.enumerated() {
+            factLabels[index].text = randomFactArray[index].fact
         }
     }
     
     func eventLabelMove(origin: Int, destination: Int) {
-        let moveEvent = eventFacts[origin]
-        eventFacts.remove(at: origin)
-        eventFacts.insert(moveEvent, at: destination)
+        let moveEvent = randomFactArray[origin]
+        randomFactArray.remove(at: origin)
+        randomFactArray.insert(moveEvent, at: destination)
         
-        reloadEventLabels()
+        loadEventLabels()
     }
     
 
-
+    func dateChecker() -> Bool {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        let date1 = randomFactArray[0].date
+        let date2 = randomFactArray[1].date
+        let date3 = randomFactArray[2].date
+        let date4 = randomFactArray[3].date
+        
+        let fDate1 = dateFormatter.date(from: date1)
+        let fDate2 = dateFormatter.date(from: date2)
+        let fDate3 = dateFormatter.date(from: date3)
+        let fDate4 = dateFormatter.date(from: date4)
+        
+        let r1 = fDate1?.compare(fDate2!) == ComparisonResult.orderedAscending
+        let r2 = fDate2?.compare(fDate3!) == ComparisonResult.orderedAscending
+        let r3 = fDate3?.compare(fDate4!) == ComparisonResult.orderedAscending
+        
+        if r1 == true && r2 == true && r3 == true {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 
