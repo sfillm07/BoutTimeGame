@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var rounds = 1
     var factText = ""
     var score = 0
+    var factURL = ""
 
 
     @IBOutlet var factLabels: [UILabel]!
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEventSubtype.motionShake {
             
+            addTapGestures()
             timer.invalidate()
             let success = dateChecker()
             
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
                 nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
             }
             
-            if rounds < 2 {
+            if rounds < 6 {
                 rounds += 1
                 timerLabel.text = ""
                 shakeLabel.text = "Click on event for more details"
@@ -67,6 +69,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Rearrange Buttons
 
     @IBAction func fullDownButton() {
         eventLabelMove(origin: 0, destination: 3)
@@ -113,6 +116,7 @@ class ViewController: UIViewController {
             timerLabel.text = ""
             shakeLabel.text = ""
             nextRoundButton.isHidden = false
+            addTapGestures()
         }
     }
     
@@ -191,22 +195,39 @@ class ViewController: UIViewController {
 
     }
 
-    func tapRecognizer(label: UILabel) {
-    let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("launchWebView:")))
+    // This function creates the tap gesture recognizer
+    func tapRecognizer(index: Int) {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToWebVC))
         
         gestureRecognizer.numberOfTapsRequired = 1
         
-        label.addGestureRecognizer(gestureRecognizer)
+        factLabels[index].addGestureRecognizer(gestureRecognizer)
+        
+        factURL = randomFactArray[index].url
     }
 
-
-
-    func launchWebView(url: String) {
-        
-        let webViewURL = URL(string: url)
-        let URLRequest = URLRequest(url: webViewURL)
-        
+    // This function adds the tap recognizer to each of the labels
+    func addTapGestures() {
+        tapRecognizer(index: 0)
+        tapRecognizer(index: 1)
+        tapRecognizer(index: 2)
+        tapRecognizer(index: 3)
     }
+
+    // This is the selector function used for the tap recognizer
+    func moveToWebVC() {
+        performSegue(withIdentifier: "moveToWebVC", sender: factURL)
+    }
+    
+    // This function prepares the data to be moved from one VC to another
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToWebVC" {
+            if let destination = segue.destination as? WebViewViewController {
+                destination.passedURL = (sender as? String)!
+            }
+        }
+    }
+
     
     
 
