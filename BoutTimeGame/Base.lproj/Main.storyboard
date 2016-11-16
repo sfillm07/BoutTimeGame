@@ -176,7 +176,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Button" image="next_round_success"/>
                                                 <connections>
-                                                    <action selector="nextRoundButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="zf5-Gg-dmA"/>
+                                                    <action selector="nextRoundButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="kGb-y2-V2x"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Shake to complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-Tg-Be8">
@@ -212,7 +212,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="nextRoundButton" destination="R4m-ev-Udg" id="gFV-sM-7dQ"/>
+                        <outlet property="nextRoundButton" destination="R4m-ev-Udg" id="JTm-9t-PEe"/>
                         <outlet property="shakeLabel" destination="HJi-Tg-Be8" id="VJ0-Ed-o1X"/>
                         <outlet property="timerLabel" destination="aYF-Og-bPW" id="Ji5-Zv-Qnc"/>
                         <outletCollection property="factLabels" destination="Rda-3J-JTf" collectionClass="NSMutableArray" id="Yeq-So-nkc"/>

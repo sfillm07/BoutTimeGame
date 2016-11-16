@@ -17,8 +17,9 @@ class ViewController: UIViewController {
     var randomFactArray: [Fact] = []
     var rNumber = 0
     var eventFacts: [String] = []
-    var rounds = 0
+    var rounds = 1
     var factText = ""
+    var score = 0
 
 
     @IBOutlet var factLabels: [UILabel]!
@@ -26,32 +27,39 @@ class ViewController: UIViewController {
     @IBOutlet weak var shakeLabel: UILabel!
     @IBOutlet weak var nextRoundButton: UIButton!
     
+    
+    // This function captures the shake gesture and then executes the code
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEventSubtype.motionShake {
-            timer.invalidate()
             
+            timer.invalidate()
             let success = dateChecker()
             
             if success == true {
+                score += 1
                 nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_success"), for: .normal)
             } else {
                 nextRoundButton.setImage(#imageLiteral(resourceName: "next_round_fail"), for: .normal)
             }
             
-            timer.invalidate()
-            timerLabel.text = ""
-            shakeLabel.text = ""
+            if rounds < 2 {
+                rounds += 1
+                timerLabel.text = ""
+                shakeLabel.text = "Click on event for more details"
+            } else {
+                nextRoundButton.setImage(#imageLiteral(resourceName: "play_again"), for: .normal)
+                rounds = 1
+                shakeLabel.text = "Score: \(score)"
+                timerLabel.text = ""
+            }
+            
             nextRoundButton.isHidden = false
-        
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextRoundButton.isHidden = true
-        countdownTimer()
-        eventGenerator()
-        loadEventLabels()
+        loadFirstRound()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,9 +93,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextRoundButtonPressed() {
-        eventGenerator()
-        seconds = 60
-        countdownTimer()
+        newRound()
     }
     
     
@@ -111,23 +117,24 @@ class ViewController: UIViewController {
     }
     
 
-    
+    // This function shuffles the entire factArray and then appends the first four Facts to the randomFactArray
     func eventGenerator() {
         
         let shuffledFactArray = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: factArray)
         
         for i in 0...3 {
             randomFactArray.append(shuffledFactArray[i] as! Fact)
+            
+            print(randomFactArray)
         }
-        print(randomFactArray)
     }
-    
+    // This function loads the fact text into each of the labels
     func loadEventLabels() {
         for (index, _) in randomFactArray.enumerated() {
             factLabels[index].text = randomFactArray[index].fact
         }
     }
-    
+    // This function takes two parameters, the location of the original fact and the destination and then moves it
     func eventLabelMove(origin: Int, destination: Int) {
         let moveEvent = randomFactArray[origin]
         randomFactArray.remove(at: origin)
@@ -136,7 +143,7 @@ class ViewController: UIViewController {
         loadEventLabels()
     }
     
-
+    // This function compares the dates and returns a Bool used to display the correct button
     func dateChecker() -> Bool {
         
         let dateFormatter = DateFormatter()
@@ -162,7 +169,46 @@ class ViewController: UIViewController {
             return false
         }
     }
+    
+    func loadFirstRound() {
+        nextRoundButton.isHidden = true
+        countdownTimer()
+        eventGenerator()
+        loadEventLabels()
+    }
+    
+    func newRound() {
+        seconds = 60
+        randomFactArray.removeAll()
+        timerLabel.isHidden = false
+        timerLabel.text = "0:60"
+        shakeLabel.isHidden = false
+        shakeLabel.text = "Shake to complete"
+        nextRoundButton.isHidden = true
+        countdownTimer()
+        eventGenerator()
+        loadEventLabels()
+
+    }
+
+    func tapRecognizer(label: UILabel) {
+    let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("launchWebView:")))
+        
+        gestureRecognizer.numberOfTapsRequired = 1
+        
+        label.addGestureRecognizer(gestureRecognizer)
+    }
+
+
+
+    func launchWebView(url: String) {
+        
+        let webViewURL = URL(string: url)
+        let URLRequest = URLRequest(url: webViewURL)
+        
+    }
+    
+    
+
+
 }
-
-
-
