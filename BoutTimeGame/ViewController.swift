@@ -33,7 +33,9 @@ class ViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEventSubtype.motionShake {
             
+            labelUserInteraction(bool: true)
             addTapGestures()
+            
             timer.invalidate()
             let success = dateChecker()
             
@@ -97,6 +99,8 @@ class ViewController: UIViewController {
     
     @IBAction func nextRoundButtonPressed() {
         newRound()
+        labelUserInteraction(bool: false)
+        
     }
     
     
@@ -214,6 +218,7 @@ class ViewController: UIViewController {
         tapRecognizer(index: 3)
     }
 
+
     // This is the selector function used for the tap recognizer
     func moveToWebVC() {
         performSegue(withIdentifier: "moveToWebVC", sender: factURL)
@@ -228,7 +233,13 @@ class ViewController: UIViewController {
         }
     }
 
-    
+    func labelUserInteraction(bool: Bool) {
+        
+        factLabels[0].isUserInteractionEnabled = bool
+        factLabels[1].isUserInteractionEnabled = bool
+        factLabels[2].isUserInteractionEnabled = bool
+        factLabels[3].isUserInteractionEnabled = bool
+    }
     
 
 
