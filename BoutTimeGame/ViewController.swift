@@ -11,6 +11,8 @@ import GameKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Variables and outlets
+    
     var seconds = 60
     var timer = Timer()
     var randomNumberArray: [Int] = []
@@ -34,9 +36,19 @@ class ViewController: UIViewController {
     @IBOutlet var tapGesture3: UITapGestureRecognizer!
     @IBOutlet var tapGesture4: UITapGestureRecognizer!
     
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadFirstRound()
+        tapInteraction(bool: false)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    
-    
+    // MARK: - Gesture recognizers
     
     @IBAction func label1Tap(_ sender: UITapGestureRecognizer) {
         factURL = randomFactArray[0].url
@@ -90,17 +102,6 @@ class ViewController: UIViewController {
             nextRoundButton.isHidden = false
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadFirstRound()
-        tapInteraction(bool: false)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Rearrange Buttons
 
@@ -134,6 +135,7 @@ class ViewController: UIViewController {
         
     }
     
+    // MARK: - Timer
     
     func countdownTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
@@ -151,10 +153,10 @@ class ViewController: UIViewController {
             timerLabel.text = ""
             shakeLabel.text = ""
             nextRoundButton.isHidden = false
-//            addTapGestures()
         }
     }
     
+    // MARK: - Facts
 
     // This function shuffles the entire factArray and then appends the first four Facts to the randomFactArray
     func eventGenerator() {
@@ -164,7 +166,6 @@ class ViewController: UIViewController {
         for i in 0...3 {
             randomFactArray.append(shuffledFactArray[i] as! Fact)
             
-            print(randomFactArray)
         }
     }
     // This function loads the fact text into each of the labels
@@ -173,6 +174,9 @@ class ViewController: UIViewController {
             factLabels[index].text = randomFactArray[index].fact
         }
     }
+    
+    // MARK: - Moving lables
+    
     // This function takes two parameters, the location of the original fact and the destination and then moves it
     func eventLabelMove(origin: Int, destination: Int) {
         let moveEvent = randomFactArray[origin]
@@ -209,13 +213,16 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Helper functions
+
+    // This function is used to load the intial round
     func loadFirstRound() {
         nextRoundButton.isHidden = true
         countdownTimer()
         eventGenerator()
         loadEventLabels()
     }
-    
+    // This function consolidates the items needed to start a new round
     func newRound() {
         seconds = 60
         randomFactArray.removeAll()
@@ -230,6 +237,10 @@ class ViewController: UIViewController {
 
     }
     
+    func moveToWebVC() {
+        performSegue(withIdentifier: "moveToWebVC", sender: factURL)
+    }
+    
     // This function prepares the data to be moved from one VC to another
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "moveToWebVC" {
@@ -239,6 +250,7 @@ class ViewController: UIViewController {
         }
     }
 
+    // This function accepts a Bool and is used to turn the tapGestureRecognizers on and off
     func tapInteraction(bool: Bool) {
         
         tapGesture1.isEnabled = bool
