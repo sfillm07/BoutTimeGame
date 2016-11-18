@@ -31,9 +31,13 @@
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rda-3J-JTf">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="117.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Jjw-Eg-UWN" appends="YES" id="Yd9-Nh-Vez"/>
+                                                </connections>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ7-jh-Oef">
                                                 <rect key="frame" x="311" y="0.0" width="40" height="117.5"/>
@@ -58,12 +62,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csg-yZ-Ohd">
                                         <rect key="frame" x="0.0" y="127.5" width="351" height="117.5"/>
                                         <subviews>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yel-HP-JsL">
+                                            <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yel-HP-JsL">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="117.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="a1A-Jf-2Dt" appends="YES" id="J3D-PW-74D"/>
+                                                </connections>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YEv-P3-w6O">
                                                 <rect key="frame" x="311" y="0.0" width="40" height="117.5"/>
@@ -100,12 +108,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="LyJ-QO-TBa">
                                         <rect key="frame" x="0.0" y="255" width="351" height="117"/>
                                         <subviews>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJs-oW-7Ds">
+                                            <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJs-oW-7Ds">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="117"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="9Vk-ba-OUu" appends="YES" id="wiY-yY-6Cs"/>
+                                                </connections>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gkT-8T-vma">
                                                 <rect key="frame" x="311" y="0.0" width="40" height="117"/>
@@ -137,12 +149,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5CA-oV-bxe">
                                         <rect key="frame" x="0.0" y="382" width="351" height="117.5"/>
                                         <subviews>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIc-I6-3Jd">
+                                            <label opaque="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIc-I6-3Jd">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="117.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="5xV-pS-stR" appends="YES" id="CLU-eB-tSK"/>
+                                                </connections>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vph-tU-vb7">
                                                 <rect key="frame" x="311" y="0.0" width="40" height="117.5"/>
@@ -215,6 +231,10 @@
                     <connections>
                         <outlet property="nextRoundButton" destination="R4m-ev-Udg" id="JTm-9t-PEe"/>
                         <outlet property="shakeLabel" destination="HJi-Tg-Be8" id="VJ0-Ed-o1X"/>
+                        <outlet property="tapGesture1" destination="Jjw-Eg-UWN" id="XPW-kp-4PY"/>
+                        <outlet property="tapGesture2" destination="a1A-Jf-2Dt" id="ecC-Vh-95x"/>
+                        <outlet property="tapGesture3" destination="9Vk-ba-OUu" id="cas-Km-u9j"/>
+                        <outlet property="tapGesture4" destination="5xV-pS-stR" id="T1z-ii-sEa"/>
                         <outlet property="timerLabel" destination="aYF-Og-bPW" id="Ji5-Zv-Qnc"/>
                         <outletCollection property="factLabels" destination="Rda-3J-JTf" collectionClass="NSMutableArray" id="Yeq-So-nkc"/>
                         <outletCollection property="factLabels" destination="yel-HP-JsL" collectionClass="NSMutableArray" id="xYi-2h-Lwj"/>
@@ -224,6 +244,26 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Jjw-Eg-UWN">
+                    <connections>
+                        <action selector="label1Tap:" destination="BYZ-38-t0r" id="nuR-zQ-ZqY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="a1A-Jf-2Dt">
+                    <connections>
+                        <action selector="label2Tap:" destination="BYZ-38-t0r" id="XaR-Kr-xP4"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="9Vk-ba-OUu">
+                    <connections>
+                        <action selector="label3Tap:" destination="BYZ-38-t0r" id="7ml-9Y-JYq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5xV-pS-stR">
+                    <connections>
+                        <action selector="label4Tap:" destination="BYZ-38-t0r" id="EPa-cn-OmY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-79.710144927536234" y="118.20652173913044"/>
         </scene>

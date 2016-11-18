@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var factText = ""
     var score = 0
     var factURL = ""
+    var gameScore = 0
 
 
     @IBOutlet var factLabels: [UILabel]!
@@ -28,13 +29,40 @@ class ViewController: UIViewController {
     @IBOutlet weak var shakeLabel: UILabel!
     @IBOutlet weak var nextRoundButton: UIButton!
     
+    @IBOutlet var tapGesture1: UITapGestureRecognizer!
+    @IBOutlet var tapGesture2: UITapGestureRecognizer!
+    @IBOutlet var tapGesture3: UITapGestureRecognizer!
+    @IBOutlet var tapGesture4: UITapGestureRecognizer!
+    
+    
+    
+    
+    
+    @IBAction func label1Tap(_ sender: UITapGestureRecognizer) {
+        factURL = randomFactArray[0].url
+        moveToWebVC()
+    }
+    
+    @IBAction func label2Tap(_ sender: UITapGestureRecognizer) {
+        factURL = randomFactArray[1].url
+        moveToWebVC()
+    }
+    
+    @IBAction func label3Tap(_ sender: UITapGestureRecognizer) {
+        factURL = randomFactArray[2].url
+        moveToWebVC()
+    }
+    
+    @IBAction func label4Tap(_ sender: UITapGestureRecognizer) {
+        factURL = randomFactArray[3].url
+        moveToWebVC()
+    }
     
     // This function captures the shake gesture and then executes the code
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEventSubtype.motionShake {
             
-            labelUserInteraction(bool: true)
-            addTapGestures()
+            tapInteraction(bool: true)
             
             timer.invalidate()
             let success = dateChecker()
@@ -53,8 +81,10 @@ class ViewController: UIViewController {
             } else {
                 nextRoundButton.setImage(#imageLiteral(resourceName: "play_again"), for: .normal)
                 rounds = 1
-                shakeLabel.text = "Score: \(score)"
+                gameScore = score
+                shakeLabel.text = "Score: \(gameScore)"
                 timerLabel.text = ""
+                score = 0
             }
             
             nextRoundButton.isHidden = false
@@ -64,6 +94,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFirstRound()
+        tapInteraction(bool: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,7 +130,7 @@ class ViewController: UIViewController {
     
     @IBAction func nextRoundButtonPressed() {
         newRound()
-        labelUserInteraction(bool: false)
+        tapInteraction(bool: false)
         
     }
     
@@ -120,7 +151,7 @@ class ViewController: UIViewController {
             timerLabel.text = ""
             shakeLabel.text = ""
             nextRoundButton.isHidden = false
-            addTapGestures()
+//            addTapGestures()
         }
     }
     
@@ -198,31 +229,6 @@ class ViewController: UIViewController {
         loadEventLabels()
 
     }
-
-    // This function creates the tap gesture recognizer
-    func tapRecognizer(index: Int) {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moveToWebVC))
-        
-        gestureRecognizer.numberOfTapsRequired = 1
-        
-        factLabels[index].addGestureRecognizer(gestureRecognizer)
-        
-        factURL = randomFactArray[index].url
-    }
-
-    // This function adds the tap recognizer to each of the labels
-    func addTapGestures() {
-        tapRecognizer(index: 0)
-        tapRecognizer(index: 1)
-        tapRecognizer(index: 2)
-        tapRecognizer(index: 3)
-    }
-
-
-    // This is the selector function used for the tap recognizer
-    func moveToWebVC() {
-        performSegue(withIdentifier: "moveToWebVC", sender: factURL)
-    }
     
     // This function prepares the data to be moved from one VC to another
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -233,13 +239,15 @@ class ViewController: UIViewController {
         }
     }
 
-    func labelUserInteraction(bool: Bool) {
+    func tapInteraction(bool: Bool) {
         
-        factLabels[0].isUserInteractionEnabled = bool
-        factLabels[1].isUserInteractionEnabled = bool
-        factLabels[2].isUserInteractionEnabled = bool
-        factLabels[3].isUserInteractionEnabled = bool
+        tapGesture1.isEnabled = bool
+        tapGesture2.isEnabled = bool
+        tapGesture3.isEnabled = bool
+        tapGesture4.isEnabled = bool
     }
+    
+
     
 
 
